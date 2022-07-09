@@ -51,7 +51,7 @@ export default function Header(props) {
       <Form className="d-flex">
         <FormControl
           type="search"
-          placeholder="City, Store or Product"
+          placeholder="State, Store or Product"
           className="me-2"
           aria-label="Search"
         />
