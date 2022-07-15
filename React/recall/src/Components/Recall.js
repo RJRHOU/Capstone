@@ -22,7 +22,6 @@ const Recall = (props) => {
     loadProducts(dispatch, jsonData);
 
     console.log(jsonData);
-    // console.log(jsonData[0].Images[0].URL)
   };
 
   useEffect(() => {

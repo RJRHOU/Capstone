@@ -8,16 +8,23 @@ import Form from "react-bootstrap/Form";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
 import myLogo from "./Images/RADish.png";
-// import SearchBox from './Searchbox';
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate   } from "react-router-dom";
 
 export default function Header(props) {
+  const {searchValue, setSearchValue}= props
+  const navigate = useNavigate();
+  function handleSearch(input) {
+    setSearchValue(input)
+  }
+
   function handleButtonClick(e) {
     e.preventDefault();
-    const searchInput = document.getElementById("search-input").value;
-    props.setSearchValue(searchInput);
     
-  }
+    navigate("/recall")
+  };
+
+  
 
   const [query, setQuery] = useState("");
 
@@ -25,19 +32,20 @@ export default function Header(props) {
     <div>
       <Navbar bg="primary" expand="lg">
         <Container fluid>
-          {/* <Link to='/'> */}
-          <Navbar.Brand href="#">
-            Recall
-            <img
-              src={myLogo}
-              width="80"
-              height="80"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-              bg="dark"
-            />
-          </Navbar.Brand>
-          {/* </Link>  */}
+          <Link to={"/"}>
+            <Navbar.Brand href="#">
+              Recall
+              <img
+                src={myLogo}
+                width="80"
+                height="80"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+                bg="dark"
+              />
+            </Navbar.Brand>
+          </Link>
+
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -63,33 +71,29 @@ export default function Header(props) {
                 Link
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="State, Store or Product"
-                className="me-2"
-                aria-label="Search"
-                onChange={(e) => setQuery(e.target.value)}
-              />
-              <Button variant="light">Search</Button>
-            </Form>
+            
           </Navbar.Collapse>
-          <form className="d-flex ms-auto me-1">
+          <form className="d-flex ms-auto me-1"
+            >
             <input
+              onChange={e=>handleSearch(e.target.value)}
+              value={searchValue}
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
               id="search-input"
             />
+            
             <button
-              onClick={handleButtonClick}
+                onClick={handleButtonClick}
               className="btn btn-outline-light"
               type="submit"
               id="search-button"
             >
               Search
             </button>
+            
           </form>{" "}
         </Container>
       </Navbar>
