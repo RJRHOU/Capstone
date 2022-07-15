@@ -1,17 +1,17 @@
-const express = require('express')
-const app = express();
-const bodyparser = require('body-parser');
-const {engine} = require('express-handlebars')
-const winston = require('winston');
+// const express = require('express')
+// const app = express();
+// const bodyparser = require('body-parser');
+// const {engine} = require('express-handlebars')
+// const winston = require('winston');
 
-const moment = require('moment');
+// const moment = require('moment');
 
-const pg = require('pg-promise')();
-
-
+// const pg = require('pg-promise')();
 
 
-app.engine('handlebars', engine)
+
+
+// app.engine('handlebars', engine)
 
 
 
@@ -22,8 +22,8 @@ app.engine('handlebars', engine)
 // app.use(passport.initialize());
 // app.use(passport.session());
 
-const PORT =process.env.PORT || 6800;
-const env = process.env.NODE_ENV || "production";
+// const PORT =process.env.PORT || 6800;
+// const env = process.env.NODE_ENV || "production";
 // router.get('/auth/github',
 //   passport.authenticate('github', { scope: [ 'user:email' ] }));
 

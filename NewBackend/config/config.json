@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "victorbrew",
-    "password": null,
-    "database": "recall_db",
-    "host": "127.0.0.1",
+    "username": "dccugsfu",
+    "password": "3ibp_erh_thEYyY4GqUWvGHHjWlfx0FP",
+    "database": "dccugsfu",
+    "host": "ziggy.db.elephantsql.com",
     "dialect": "postgres"
   },
   "test": {
