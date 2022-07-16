@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect } from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import { loadProducts } from '../Redux/action';
-import Card from 'react-bootstrap/Card';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import ListGroup from 'react-bootstrap/ListGroup';
-=======
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadProducts } from "./Redux/action";
@@ -14,7 +7,11 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
 import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
->>>>>>> main
+
+import Accordion from 'react-bootstrap/Accordion';
+import Button from 'react-bootstrap/Button';
+
+
 
 const Recall = (props) => {
   const dispatch = useDispatch();
@@ -39,7 +36,7 @@ const Recall = (props) => {
 
   return (
     <div>
-      <Row lg={4}>
+      <Row lg={6}>
         {!!items.length &&
           items.map((product) => (
             <Col className="d-flex">
@@ -47,20 +44,29 @@ const Recall = (props) => {
                 className="flex-fill"
                 key={product.RecallID}
                 style={{ width: "18rem" }}
+                class="card h-800"
               >
-                <Card.Img variant="top" src={product.Images[0]?.URL} />
+                <Card.Img  className="" variant="top" src={product.Images[0]?.URL} />
 
                 <Card.Body>
                   <Card.Title>{product.Title}</Card.Title>
-                  <Card.Text>{product.Description}</Card.Text>
+                  {/* <Accordion>
+                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                    Description
+                  </Accordion.Toggle>
+                  <Accordion.Collapse eventKey="0"> */}
+                  <Card.Text >{product.Description}</Card.Text>
+                  {/* </Accordion.Collapse>
+                  </Accordion> */}
                 </Card.Body>
+                
                 <ListGroup className="list-group-flush">
                   <ListGroupItem>{product.RecallDate}</ListGroupItem>
                   <ListGroupItem>{product.Retailers[0]?.Name}</ListGroupItem>
                   <ListGroupItem></ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                  <Card.Link href="#">Card Link</Card.Link>
+                  <Card.Link class=" card-link text-info mt-auto text-center" href="#">Card Link</Card.Link>
                   <Card.Link href="#">Another Link</Card.Link>
                 </Card.Body>
               </Card>
