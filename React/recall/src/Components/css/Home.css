@@ -1,4 +1,15 @@
 .cwrapper{
-    width: 40%; /* for example */
+    width: max-content; 
     margin: auto;
+    position:center;
+    max-height:max-content;
+
+}
+
+.margin {
+    margin: auto
+}
+
+.body {
+    background-color: grey;
 }

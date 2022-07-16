@@ -10,6 +10,7 @@ import FormControl from "react-bootstrap/FormControl";
 import myLogo from "./Images/RADish.png";
 
 import { Link, useNavigate   } from "react-router-dom";
+import Login from "./Login";
 
 export default function Header(props) {
   const {searchValue, setSearchValue}= props
@@ -34,11 +35,13 @@ export default function Header(props) {
         <Container fluid>
           <Link to={"/"}>
             <Navbar.Brand href="#">
+              <h3>
               Recall
+              </h3>
               <img
                 src={myLogo}
-                width="80"
-                height="80"
+                width="90"
+                height="90"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
                 bg="dark"
@@ -53,10 +56,16 @@ export default function Header(props) {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              {/* <Link to='/recall'> */}
-              <Nav.Link href="#action1">Recall</Nav.Link>
-              {/* </Link>  */}
-              <Nav.Link href="#action2">Link</Nav.Link>
+              {/* <Link to={"Login"}> 
+              <Nav.Link href="#action2">LogIn</Nav.Link>
+              </Link> */}
+
+              <Link to={"SignUp"}> 
+              <Nav.Link href="#action2">LogIn/SignUp</Nav.Link>
+              </Link>
+              <Link to={"entryForm"}>
+              <Nav.Link href="#action1">Entry Form</Nav.Link>
+              </Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
