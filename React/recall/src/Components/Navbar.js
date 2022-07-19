@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
-import myLogo from "./Images/RADish.png";
+import myLogo from "../Images/RADish.png";
 
 import { Link, useNavigate   } from "react-router-dom";
 import Login from "./Login";
@@ -66,7 +66,7 @@ export default function Header(props) {
               <Link to={"entryForm"}>
               <Nav.Link href="#action1">Entry Form</Nav.Link>
               </Link>
-              <NavDropdown title="Link" id="navbarScrollingDropdown">
+              {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
                   Another action
@@ -78,7 +78,7 @@ export default function Header(props) {
               </NavDropdown>
               <Nav.Link href="#" disabled>
                 Link
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
             
           </Navbar.Collapse>
