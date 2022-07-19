@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const {User} = require("../models");
+const {Sequelize, User} = require("../models");
 const saltRounds = bcrypt.genSaltSync(10)
 
 
