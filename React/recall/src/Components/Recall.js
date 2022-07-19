@@ -7,9 +7,9 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
 import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import style from "./css/recall.css";
+import Accordian from "react-bootstrap/Accordion"
 
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
 
 
 
@@ -35,7 +35,7 @@ const Recall = (props) => {
   }, [props.searchValue]);
 
   return (
-    <div>
+    <div className="links" class={style.textHeight}>
       <Row lg={6}>
         {!!items.length &&
           items.map((product) => (
@@ -43,38 +43,40 @@ const Recall = (props) => {
               <Card
                 className="flex-fill"
                 key={product.RecallID}
-                style={{ width: "18rem" }}
+                style={{ width: "18rem"  }}
                 class="card h-800"
               >
                 <Card.Img  className="" variant="top" src={product.Images[0]?.URL} />
 
                 <Card.Body>
                   <Card.Title>{product.Title}</Card.Title>
-                  {/* <Accordion>
-                  <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                   
+                  {/* <Accordion.Toggle as={Button} variant="link" eventKey="0">
                     Description
                   </Accordion.Toggle>
-                  <Accordion.Collapse eventKey="0"> */}
-                  <Card.Text >{product.Description}</Card.Text>
-                  {/* </Accordion.Collapse>
-                  </Accordion> */}
+                  <Accordion.Collapse eventKey="0"> */} 
+                  <Card.Text  style={{height:"10rem"}}>{product.Description}</Card.Text>
+                  {/* </Accordion.Collapse>*/}
+                
                 </Card.Body>
                 
                 <ListGroup className="list-group-flush">
-                  <ListGroupItem>{product.RecallDate}</ListGroupItem>
+                  <ListGroupItem>Recall ID : {product.RecallID}</ListGroupItem>
                   <ListGroupItem>{product.Retailers[0]?.Name}</ListGroupItem>
-                  <ListGroupItem></ListGroupItem>
+                  <ListGroupItem>Recall Date: {product.RecallDate}</ListGroupItem>
                 </ListGroup>
-                <Card.Body>
-                  <Card.Link class=" card-link text-info mt-auto text-center" href="#">Card Link</Card.Link>
-                  <Card.Link href="#">Another Link</Card.Link>
+                <Card.Body className="links">
+                  <Card.Link  class={style.links} href={product.URL}>Click For More Information</Card.Link>
+                  {/* <Card.Link href="#">Another Link</Card.Link> */}
                 </Card.Body>
               </Card>
             </Col>
           ))}
       </Row>
     </div>
+    
   );
+  
 };
 
 export default Recall;
