@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import React, { useEffect } from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import { loadProducts } from '../Redux/action';
-import Card from 'react-bootstrap/Card';
-import ListGroupItem from 'react-bootstrap/ListGroupItem';
-import ListGroup from 'react-bootstrap/ListGroup';
-=======
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadProducts } from "./Redux/action";
@@ -14,7 +6,6 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
 import ListGroup from "react-bootstrap/ListGroup";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
->>>>>>> main
 
 const Recall = (props) => {
   const dispatch = useDispatch();
