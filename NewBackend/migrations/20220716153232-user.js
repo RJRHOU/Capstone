@@ -30,7 +30,7 @@ module.exports = {
         type: Sequelize.DATE
       }
     });
-    await queryInterface.createTable('Productpost', {
+    await queryInterface.createTable('Posting', {
 
       id: {
         allowNull: false,
