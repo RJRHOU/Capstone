@@ -9,6 +9,9 @@ import {
   
 } from "react-router-dom";
 import Home from "./Components/Home";
+import EntryForm from "./Components/EntryForm";
+import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
 
 
 function App() {
@@ -21,8 +24,10 @@ function App() {
       <Routes>
         <Route index element={<Home/>}/>
         <Route path='recall' element={<Recall searchValue={searchValue} setSearchValue={setSearchValue}/>} />
-         {/* <Route exact path='/submit' component={Submit}/>
-        <Route exact path='/signIn' component={Signin}/> */}
+        <Route path='entryForm' element={<EntryForm />}/>
+        <Route path='Login' element={<Login />}/>
+        <Route path='SignUp' element={<SignUp />}/>
+
       </Routes>  
        
 

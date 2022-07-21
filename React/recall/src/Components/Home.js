@@ -1,24 +1,28 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import style from './css/Home.css'
+import Col from 'react-bootstrap/Col'
 
 export default function Home(props) {
   return (
-  <div>  
+    
+  <div className='body'>  
     <div>
-      <h5>
+      <h1>
         Welcome to Recall RADish
-      </h5>
+      </h1>
     </div>
 
     <div class={style.cwrapper} >
-        <Carousel >
+    <Col className="d-flex">
+        <Carousel  className="margin">
   <Carousel.Item>
     <img
       
       className="d-block w-40 auto"
       src="https://motherhoodcommunity.com/wp-content/uploads/2021/10/Everything-You-Need-To-Know-About-The-HappyBABY-Organic-Food-Recall-1.png"
       alt="First slide"
+
     />
     
   </Carousel.Item>
@@ -41,8 +45,10 @@ export default function Home(props) {
    
   </Carousel.Item>
 </Carousel>
+    </Col>
     </div>
     </div>
+    
   )
 }
 
