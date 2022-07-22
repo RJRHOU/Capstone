@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Link, useNavigate} from "react-router-dom";
  
 
@@ -11,9 +12,11 @@ export default function SignUp(props) {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
+
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
   };
+
 
   const createUser =   (e) => {
     console.log("hi")
@@ -78,6 +81,7 @@ export default function SignUp(props) {
     setPassword(e.target.value)
 
   }
+
 
   if (authMode === "signin") {
     return (

@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
-import myLogo from "../Images/RADish.png";
+import myLogo from "../Images/NEWRAD.png";
 
 import { Link, useNavigate   } from "react-router-dom";
 import Login from "./Login";
@@ -36,12 +36,12 @@ export default function Header(props) {
           <Link to={"/"}>
             <Navbar.Brand href="#">
               <h3>
-              Recall
+              {/* Recall */}
               </h3>
               <img
                 src={myLogo}
-                width="90"
-                height="90"
+                width="100"
+                height="100"
                 className="d-inline-block align-top"
                 alt="React Bootstrap logo"
                 bg="dark"
@@ -61,10 +61,10 @@ export default function Header(props) {
               </Link> */}
 
               <Link to={"SignUp"}> 
-              <Nav.Link href="#action2">LogIn/SignUp</Nav.Link>
+              <Nav.Link href="#action2"><h4>LogIn/SignUp</h4></Nav.Link>
               </Link>
               <Link to={"entryForm"}>
-              <Nav.Link href="#action1">Entry Form</Nav.Link>
+              <Nav.Link href="#action1"><h4>Entry Form</h4></Nav.Link>
               </Link>
               {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
