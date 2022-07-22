@@ -1,17 +1,88 @@
+import React, { useState } from "react";
+import { Link, useNavigate} from "react-router-dom";
+ 
 
-import React, { useState } from "react"
 
-export default function SignUp (props) {
-  let [authMode, setAuthMode] = useState("signin")
+export default function SignUp(props) {
+  const navigate =useNavigate()
+  let [authMode, setAuthMode] = useState("signin");
+  const [firstName, setFirstName] = useState("");
+  const [password, setPassword] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
 
   const changeAuthMode = () => {
-    setAuthMode(authMode === "signin" ? "signup" : "signin")
+    setAuthMode(authMode === "signin" ? "signup" : "signin");
+  };
+
+  const createUser =   (e) => {
+    console.log("hi")
+    
+    e.preventDefault()
+     fetch(`http://localhost:6700/user/register`, {
+      
+      
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        password,
+      }),
+    })
+    
+    .then(res => res.json())
+    .then(data => {
+      navigate("/")
+      console.log("data", data)
+    })
+  }
+
+  const loginUser = async (e) => {
+
+    e.preventDefault()
+     fetch(`http://localhost:6700/user/login`, {
+      
+      
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        
+        email,
+        password,
+      }),
+    })
+    
+    .then(res => res.json())
+    .then(data => {
+
+     
+      navigate("/")
+      console.log("data", data)
+    })
+  }
+
+
+  function handleEmail(e) {
+    setEmail(e.target.value)
+  }
+  function handleFirstName(e) {
+    setFirstName(e.target.value)
+  }
+  function handleLastName(e) {
+    setLastName(e.target.value)
+  }
+  function handlePassword(e) {
+    console.log("password check")
+    setPassword(e.target.value)
+
   }
 
   if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <form className="Auth-form" onSubmit={ (e) => loginUser(e)} >
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
@@ -23,6 +94,8 @@ export default function SignUp (props) {
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
+              value = {email} 
+              onChange={(e) => handleEmail(e)}
                 type="email"
                 className="form-control mt-1"
                 placeholder="Enter email"
@@ -31,6 +104,8 @@ export default function SignUp (props) {
             <div className="form-group mt-3">
               <label>Password</label>
               <input
+              value = {password} 
+              onChange={(e) => handlePassword(e)}
                 type="password"
                 className="form-control mt-1"
                 placeholder="Enter password"
@@ -47,12 +122,12 @@ export default function SignUp (props) {
           </div>
         </form>
       </div>
-    )
+    );
   }
 
   return (
     <div className="Auth-form-container">
-      <form className="Auth-form">
+      <form className="Auth-form" onSubmit={ (e) => createUser(e)}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="text-center">
@@ -62,16 +137,33 @@ export default function SignUp (props) {
             </span>
           </div>
           <div className="form-group mt-3">
-            <label>Full Name</label>
+            <label>First Name</label>
             <input
-              type="email"
+              value={firstName} 
+              onChange={(e) => handleFirstName(e)}
+              name = "firstName"
+              type="text"
               className="form-control mt-1"
-              placeholder="e.g Jane Doe"
+              placeholder="e.g David"
+            />
+          </div>
+          <div className="form-group mt-3">
+            <label>Last Name</label>
+            <input
+              value = {lastName} 
+              name="lastName"
+              onChange={(e) => handleLastName(e)}
+              type="text"
+              className="form-control mt-1"
+              placeholder="e.g Jackson"
             />
           </div>
           <div className="form-group mt-3">
             <label>Email address</label>
             <input
+            name="email"
+              value = {email} 
+              onChange={(e) => handleEmail(e)}
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
@@ -80,6 +172,9 @@ export default function SignUp (props) {
           <div className="form-group mt-3">
             <label>Password</label>
             <input
+            name="password"
+              value = {password} 
+              onChange={(e) => handlePassword(e)}
               type="password"
               className="form-control mt-1"
               placeholder="Password"
@@ -96,5 +191,6 @@ export default function SignUp (props) {
         </div>
       </form>
     </div>
-  )
+  );
 }
+

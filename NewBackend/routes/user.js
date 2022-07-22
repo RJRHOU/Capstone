@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
 })
 
 router.post("/register", async (req, res, next) => {
-
+console.log(req.body)
     const {firstName, lastName, email, password} = req.body
     const hash = bcrypt.hashSync(password, saltRounds)
     
@@ -26,20 +26,29 @@ router.post("/register", async (req, res, next) => {
         password:hash
         
     })
-    console.log("created user",user)
-    res.json({
+    
+    console.log({
         id: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email
         
     })
+    res.send({
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email
+        
+    })
+    
+    
 })
 
 router.post("/login", async (req, res, next) => {
 
     const {email, password} = req.body
-    
+    console.log(email, password)
     
     const user = await User.findOne({
 
@@ -50,8 +59,10 @@ router.post("/login", async (req, res, next) => {
         
         
     })
+    
     if(user){
         const comparePass = bcrypt.compareSync(password, user.password)
+        console.log(comparePass)
         if(comparePass === true){
             console.log("loggedIn User", user)
             res.json({
