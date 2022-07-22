@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 const EntryForm = () => {
   return (
     <div>
-      <div>
+      <div className="text-center">
         <h1>
           If you would like to submit an item for recall consideration, enter
           Information below.

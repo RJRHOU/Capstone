@@ -3,7 +3,8 @@ import "./css/login.css"
 
 export default function Login (props) {
   return (
-    <div className="Auth-form-container">
+    <div className="">
+    <div className="Auth-form-container ">
       <form className="Auth-form">
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
@@ -33,6 +34,7 @@ export default function Login (props) {
           </p>
         </div>
       </form>
+    </div>
     </div>
   )
 }

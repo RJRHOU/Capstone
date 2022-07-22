@@ -1,19 +1,42 @@
-import React from 'react'
-import Carousel from 'react-bootstrap/Carousel';
-import style from './css/Home.css'
-import Col from 'react-bootstrap/Col'
+import React from "react";
+import Carousel from "react-bootstrap/Carousel";
+import "./css/Home.css";
+import Col from "react-bootstrap/Col";
+import image from "../Images/RADish.png";
 
 export default function Home(props) {
   return (
     
-  <div className='body'>  
-    <div>
-      <h1>
-        Welcome to Recall RADish
-      </h1>
-    </div>
+    <div class="body">
+      <div class="video-container ">
+  <iframe src="https://www.youtube.com/embed/lTHGAuIcF7g?controls=0&autoplay=1&mute=1"></iframe>
+</div>
 
-    <div class={style.cwrapper} >
+      {/* <iframe
+        width="1280"
+        height="720"
+        src="https://www.youtube.com/embed/qM4zMofsI7w?autoplay=1&controls=0&showinfo=0&autohide=1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay=1 ; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe> */}
+
+      {/* <div className="rounded mx-auto d-block">
+        <h1>Welcome to Recall RADish</h1>
+        <div className="rounded mx-auto d-block">
+          <img
+            src={image}
+            width="1000rem"
+            height="1000rem"
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+            bg="dark"
+          />
+        </div>
+      </div> */}
+
+      {/* <div class={style.cwrapper} >
     <Col className="d-flex">
         <Carousel  className="margin">
   <Carousel.Item>
@@ -46,10 +69,7 @@ export default function Home(props) {
   </Carousel.Item>
 </Carousel>
     </Col>
+    </div> */}
     </div>
-    </div>
-    
-  )
+  );
 }
-
-

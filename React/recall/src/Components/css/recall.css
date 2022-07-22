@@ -5,3 +5,9 @@
 .links{
     background-color: rgb(200, 193, 193);
 }
+
+.button {
+    margin:auto;
+    display:flex;
+    text-align: center;
+}
