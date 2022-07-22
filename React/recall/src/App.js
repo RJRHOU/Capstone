@@ -10,8 +10,9 @@ import {
 } from "react-router-dom";
 import Home from "./Components/Home";
 import EntryForm from "./Components/EntryForm";
-import Login from "./Components/Login";
+
 import SignUp from "./Components/SignUp";
+import Login from "./Components/Login";
 
 
 function App() {
