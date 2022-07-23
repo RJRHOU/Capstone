@@ -37,4 +37,16 @@ res.json({
 
 
 })
+
+router.get("/allreviews", async (req, res) => {
+
+const reviews = await reviewpost.findAll()
+    res.send(reviews)
+
+        
+
+
+})
+
+
 module.exports = router
