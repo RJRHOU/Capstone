@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { Link, useNavigate} from "react-router-dom";
+import { saveUserData } from "../Redux/action";
  
 
 
 export default function SignUp(props) {
   const navigate =useNavigate()
+  const dispatch = useDispatch()
   let [authMode, setAuthMode] = useState("signin");
   const [firstName, setFirstName] = useState("");
   const [password, setPassword] = useState("");
@@ -59,7 +62,7 @@ export default function SignUp(props) {
     
     .then(res => res.json())
     .then(data => {
-
+        saveUserData(dispatch,data)
      
       navigate("/")
       console.log("data", data)
