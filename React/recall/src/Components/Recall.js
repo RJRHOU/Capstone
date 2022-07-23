@@ -15,9 +15,28 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
 import myLogo from "../Images/NEWRAD.png";
 
-const Recall = (props) => {
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+export default function Recall(props){
 
   const [isLoading, setIsLoading] = useState(true);
+
+  const [reviewtitle, setreviewTitle] = useState("")
+  const [userID, setuserID] = useState("")
+  const [productID, setproductID] = useState("")
+  const [productreview, setPoster] = useState("")
+
 
   function onLoad() {
     // delay for demo only
@@ -41,6 +60,47 @@ const Recall = (props) => {
 
     console.log(jsonData);
   };
+
+const createPost = (e) => {
+
+  e.preventDefault()
+     fetch(`http://localhost:6700/reviewpost/comment`, {
+
+
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+
+    productID,
+    userID,
+    reviewtitle, 
+    productreview,
+    
+      }),
+})
+}
+
+
+function handlereviewTitle(e) {
+  setreviewTitle(e.target.value)
+}
+function handleproductID(e) {
+  setproductID(e.target.value)
+}
+function handleuserID(e) {
+  setuserID(e.target.value)
+}
+function handlereviewComment(e) {
+  setPoster(e.target.value)
+}
+
+
+
+
+
+
+
+
 
   useEffect(() => {
     loadItems();
@@ -102,16 +162,24 @@ const Recall = (props) => {
                   </Card.Link>
                 </Card.Body>
                 </div>
+                
+
+                
+
+              
+
                 <div className="d-flex align-items-end">
                 <Card.Body>
-                  <div className="d-flex align-items-end">
+                  <div className="d-flex align-items-end" >
                   <Container>
+                  
+
                   <Form.Control as="textarea" rows={3} />
                     
                   </Container>
                   </div>
                   <div className="text-center ">
-                  <Button  variant="primary" size="sm">
+                  <Button onSubmit={ (e) => createPost(e)} variant="primary" size="sm">
           Submit
         </Button>
         </div>
@@ -128,4 +196,3 @@ const Recall = (props) => {
   );
 };
 
-export default Recall;
