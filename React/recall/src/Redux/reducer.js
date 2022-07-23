@@ -4,6 +4,7 @@ const initialState = {
     products:[], 
     byDate:[],
     byCity:[],
+    userData:{}
 }
 
 const recallReducer = (state = initialState, action) => {

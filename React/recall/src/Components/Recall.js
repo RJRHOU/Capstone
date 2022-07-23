@@ -13,24 +13,11 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/esm/Container";
-import myLogo from "../Images/NEWRAD.png";
-
-
-
-
- 
-
-
-
-
-
-
-
-
+import myLogo from "../Images/RADish.png";
 
 export default function Recall(props){
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const [reviewtitle, setreviewTitle] = useState("")
   const [userID, setuserID] = useState("")
@@ -38,12 +25,7 @@ export default function Recall(props){
   const [productreview, setPoster] = useState("")
 
 
-  function onLoad() {
-    // delay for demo only
-    setTimeout(() => setIsLoading(false), 1000);
-
-   // setIsLoading(false)
-  }
+  
 
   const dispatch = useDispatch();
 
@@ -107,16 +89,10 @@ function handlereviewComment(e) {
   }, [props.searchValue]);
 
   return (
-    <>
-    <div>
-      <img
-        alt="ad-img"
-        width={500}
-        src={myLogo}
-        style={{ display: isLoading ? "block" : "none" }}
-      />
     
-      
+    <div  >
+      <div  className="image">
+      <></>
 
 
 
@@ -133,13 +109,14 @@ function handlereviewComment(e) {
                 
               >
                 <Card.Img
+                  style={{ height: "20rem" }}
                   className=""
                   variant="top"
                   src={product.Images[0]?.URL}
                 />
 
                 <Card.Body>
-                  <Card.Title>{product.Title}</Card.Title>
+                  <Card.Title>{<h4>{product.Title}</h4>}</Card.Title>
 
                   
                   <Card.Text style={{ height: "10rem" }}>
@@ -169,20 +146,20 @@ function handlereviewComment(e) {
               
 
                 <div className="d-flex align-items-end">
-                <Card.Body>
-                  <div className="d-flex align-items-end" >
+                <Card.Body className="links">
+                  <div className="d-flex align-items-end">
                   <Container>
                   
 
                   <Form.Control as="textarea" rows={3} />
-                    
-                  </Container>
-                  </div>
                   <div className="text-center ">
                   <Button onSubmit={ (e) => createPost(e)} variant="primary" size="sm">
           Submit
         </Button>
         </div>
+                  </Container>
+                  </div>
+                  
                   {/* <Card.Link href="#">Another Link</Card.Link> */}
                 </Card.Body>
                 </div>
@@ -192,7 +169,8 @@ function handlereviewComment(e) {
       </Row>
     </div>
     </div>
-    </>
+    </div>
+    // </>
   );
 };
 
