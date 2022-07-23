@@ -9,7 +9,7 @@ export default function Home(props) {
     
     <div class="body">
       <div class="video-container ">
-  <iframe src="https://www.youtube.com/embed/lTHGAuIcF7g?controls=0&autoplay=1&mute=1"></iframe>
+  <iframe src="https://www.youtube.com/embed/lTHGAuIcF7g?controls=0&autoplay=1&mute=1&loop=1"></iframe>
 </div>
 
       {/* <iframe
