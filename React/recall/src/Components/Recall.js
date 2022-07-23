@@ -16,13 +16,11 @@ import Container from "react-bootstrap/esm/Container";
 import myLogo from "../Images/RADish.png";
 
 export default function Recall(props){
-
+  const userID = useSelector(state => state.userData?.userData?.id) 
   // const [isLoading, setIsLoading] = useState(true);
 
-  const [reviewtitle, setreviewTitle] = useState("")
-  const [userID, setuserID] = useState("")
-  const [productID, setproductID] = useState("")
-  const [productreview, setPoster] = useState("")
+  const [allreviews, setAllreviews] = useState([])
+  const [productreview, setProductReview] = useState("")
 
 
   
@@ -43,7 +41,13 @@ export default function Recall(props){
     console.log(jsonData);
   };
 
-const createPost = (e) => {
+
+const createPost = (e, productID, reviewtitle) => {
+
+  console.log(productID,
+    userID,
+    reviewtitle, 
+    productreview)
 
   e.preventDefault()
      fetch(`http://localhost:6700/reviewpost/comment`, {
@@ -59,27 +63,50 @@ const createPost = (e) => {
     productreview,
     
       }),
+
 })
+getreviews()
+
 }
 
 
-function handlereviewTitle(e) {
-  setreviewTitle(e.target.value)
+const getreviews = () => {
+
+  
+
+ 
+     fetch(`http://localhost:6700/reviewpost/allreviews`, {
+
+
+      method: "GET"
+      
+    
+      })
+
+      .then(res => res.json())
+      .then(data => {
+          setAllreviews(data)
+       
+        
+        console.log("data", data)
+      })
+
 }
-function handleproductID(e) {
-  setproductID(e.target.value)
-}
-function handleuserID(e) {
-  setuserID(e.target.value)
-}
+
+
+
+
+
 function handlereviewComment(e) {
-  setPoster(e.target.value)
+  setProductReview(e.target.value)
 }
 
 
 
 
-
+useEffect(() => {
+  getreviews();
+}, []);
 
 
 
@@ -136,7 +163,13 @@ function handlereviewComment(e) {
                 <Card.Body className="links">
                   <Card.Link class={style.links} href={product.URL}>
                     Click For More Information
+              
                   </Card.Link>
+                  <div>
+                    {!!allreviews.length && allreviews.filter(review => review.productID === product.RecallID).map(productreview => (
+                      <div>{productreview.productreview}</div>
+                    ))}
+                  </div>
                 </Card.Body>
                 </div>
                 
@@ -144,16 +177,16 @@ function handlereviewComment(e) {
                 
 
               
-
+                {!!userID &&
                 <div className="d-flex align-items-end">
                 <Card.Body className="links">
                   <div className="d-flex align-items-end">
                   <Container>
                   
 
-                  <Form.Control as="textarea" rows={3} />
+                  <Form.Control as="textarea" rows={3} onChange={(e) => handlereviewComment(e)} />
                   <div className="text-center ">
-                  <Button onSubmit={ (e) => createPost(e)} variant="primary" size="sm">
+                  <Button onClick={ (e) => createPost(e, product.RecallID, product.Title )} variant="primary" size="sm">
           Submit
         </Button>
         </div>
@@ -162,7 +195,7 @@ function handlereviewComment(e) {
                   
                   {/* <Card.Link href="#">Another Link</Card.Link> */}
                 </Card.Body>
-                </div>
+                </div>}
               </Card>
             </Col>
           ))}
