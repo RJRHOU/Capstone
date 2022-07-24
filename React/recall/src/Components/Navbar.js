@@ -9,10 +9,19 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
 import myLogo from "../Images/NEWRAD.png";
 
-import { Link, useNavigate   } from "react-router-dom";
-import Login from "./Login";
+import { Link, useNavigate, useHistory } from "react-router-dom";
+
 
 export default function Header(props) {
+
+  let user = JSON.parse(localStorage.getItem('user-info')) 
+  const history=useNavigate()
+  function logout() {
+    localStorage.clear();
+    history.push('/')
+
+  }
+
   const {searchValue, setSearchValue}= props
   const navigate = useNavigate();
   function handleSearch(input) {
@@ -36,7 +45,7 @@ export default function Header(props) {
           <Link to={"/"}>
             <Navbar.Brand href="#">
               <h3>
-              {/* Recall */}
+              
               </h3>
               <img
                 src={myLogo}
@@ -56,30 +65,21 @@ export default function Header(props) {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              {/* <Link to={"Login"}> 
-              <Nav.Link href="#action2">LogIn</Nav.Link>
-              </Link> */}
-
               <Link to={"SignUp"}> 
               <Nav.Link href="#action2"><h4>LogIn/SignUp</h4></Nav.Link>
               </Link>
               <Link to={"entryForm"}>
               <Nav.Link href="#action1"><h4>Entry Form</h4></Nav.Link>
               </Link>
-              {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="#" disabled>
-                Link
-              </Nav.Link> */}
+              
             </Nav>
+            {localStorage.getItem('user-info') ?
+            <Nav>
+              <NavDropdown title={user && user.name}>
+                <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            :null}
             
           </Navbar.Collapse>
           <form className="d-flex ms-auto me-1"

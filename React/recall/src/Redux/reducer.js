@@ -4,13 +4,14 @@ const initialState = {
     products:[], 
     byDate:[],
     byCity:[],
-    userData:{}
+    
 }
 
 const recallReducer = (state = initialState, action) => {
     switch(action.type) {
         case Load_Products:
             return {...state, products: action.payload}
+
         default: 
             return state;    
     }

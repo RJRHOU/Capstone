@@ -117,7 +117,7 @@ useEffect(() => {
 
   return (
     
-    <div  >
+    <div className="image" >
       <div  className="image">
       <></>
 

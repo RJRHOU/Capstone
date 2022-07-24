@@ -12,20 +12,15 @@ const EntryForm = () => {
         </h1>
       </div>
       <div> </div>
-      
+
       <Container>
         <Form>
-          <Form.Group controlId="form.Name">
+          <Form.Group controlId="form.Email">
             <Form.Label>
-              {" "}
-              <h5>User ID</h5>
+              <h5>Email address</h5>
             </Form.Label>
-            <Form.Control type="text" placeholder="Enter User ID" />
-          </Form.Group>
-          {/* <Form.Group controlId="form.Email">
-            <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="name@example.com" />
-          </Form.Group> */}
+          </Form.Group>
           <Form.Group controlId="form.Title">
             <Form.Label>
               <h5>Title</h5>
