@@ -49,4 +49,14 @@ The User can submit their own products for recall review by CPSC.
 - Clean up cards
 - Allow user to share cards by text, email, Facebook, Twitter
 
+## Developers:
 
+- Rocky Rosales
+    - [LinkedIn](https://www.linkedin.com/in/rocky-rosales-25b4491b4/)
+    - [Github](https://github.com/RJRHOU)
+    - <img src="AppImages/Rocky.jpg" width="200">
+
+- Victor Brew
+    - [LinkedIn](https://www.linkedin.com/in/rocky-rosales-25b4491b4/)
+    - [Github](https://github.com/RJRHOU)
+    - <img src="AppImages/Victor.png" width="200">
