@@ -21,7 +21,7 @@ export default function Recall(props){
 
   const [allreviews, setAllreviews] = useState([])
   const [productreview, setProductReview] = useState("")
-
+  const [displaycomments, setDisplaycomments] = useState(true)
 
   
 
@@ -49,6 +49,8 @@ const createPost = (e, productID, reviewtitle) => {
     reviewtitle, 
     productreview)
 
+    
+
   e.preventDefault()
      fetch(`http://localhost:6700/reviewpost/comment`, {
 
@@ -66,6 +68,7 @@ const createPost = (e, productID, reviewtitle) => {
 
 })
 getreviews()
+setDisplaycomments(false)
 
 }
 
@@ -106,9 +109,15 @@ function handlereviewComment(e) {
 
 useEffect(() => {
   getreviews();
+}, [displaycomments]);
+
+useEffect(() => {
+  getreviews();
 }, []);
 
-
+// useEffect(() => {
+//   getreviews();
+// }, [productreview]);
 
 
   useEffect(() => {
