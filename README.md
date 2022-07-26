@@ -31,8 +31,7 @@ The User can submit their own products for recall review by CPSC.
 
 
 
-## Database
-<img src="" alt="Sequalize" width="40" height="40"/>
+
 
 
 
@@ -58,6 +57,6 @@ The User can submit their own products for recall review by CPSC.
     - <img src="AppImages/Rocky.jpg" width="200">
 
 - Victor Brew
-    - [LinkedIn](https://www.linkedin.com/in/rocky-rosales-25b4491b4/)
-    - [Github](https://github.com/RJRHOU)
+    - [LinkedIn](https://www.linkedin.com/in/victor-brew-4b2171126/)
+    - [Github](https://github.com/huttonbrew)
     - <img src="AppImages/Victor.png" width="200">
