@@ -33,22 +33,20 @@ The User can submit their own products for recall review by CPSC.
 
 
 
-
-
-
 ## MVP
 - Front-end - React
 - Database - Sequelize
 - Backend - Node.js
 - Recorded Demo
-- Hosted through 
-- Protect with SSL certificate
+- Hosted through Heroku
 
 
 ## Stretch Goals (Future)
 - Make mobile-responsive
 - Clean up cards
 - Allow user to share cards by text, email, Facebook, Twitter
+- Allow user to Bookmark cards
+- Create endpoint for Recall Submission form
 
 ## Developers:
 
