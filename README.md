@@ -4,8 +4,10 @@
  https://capstonefront.herokuapp.com/
  https://rockyrosales.atlassian.net/jira/software/projects/REC/boards/2/backlog
 
-Recall RADish is site that allows users to search items recalled by the Consumer Products Safety Commission, as well as submit items for recall review. Users can sell their used camping/hiking gear, from tents to flashlights, or just buy at great prices. The site is built on Express, using the React/Redux framework with data stored in Sequelize.
+Recall RADish is site that allows users to search items recalled by the Consumer Products Safety Commission, review recalls, as well as submit items for recall review. The site is built using Sequlize, Express, a React/Redux frontend framework with Postgres as the Database
 
+
+*Stretch goal* Users can sell their used camping/hiking gear, from tents to flashlights, or just buy at great prices. 
 <img width="1200" alt="" src="./AppImages/Homepage.png">
 
 
@@ -34,9 +36,9 @@ The User can submit their own products for recall review by CPSC.
 
 
 ## MVP
-- Front-end - React
-- Database - Sequelize
-- Backend - Node.js
+- Front-end - React/Redux & Bootstrap
+- Backend - Sequelize, Bcrypt & Node.js
+- Database - Postgres
 - Recorded Demo
 - Hosted through Heroku
 
@@ -47,6 +49,9 @@ The User can submit their own products for recall review by CPSC.
 - Allow user to share cards by text, email, Facebook, Twitter
 - Allow user to Bookmark cards
 - Create endpoint for Recall Submission form
+- Create a trending route 
+- Create a process that simplifies sending back a recall
+
 
 ## Developers:
 
