@@ -69,7 +69,7 @@ export default function Header(props) {
               <Nav.Link href="#action2"><h4>LogIn/SignUp</h4></Nav.Link>
               </Link>
               <Link to={"entryForm"}>
-              <Nav.Link href="#action1"><h4>Entry Form</h4></Nav.Link>
+              <Nav.Link href="#action1"><h4>Submissions</h4></Nav.Link>
               </Link>
               
             </Nav>
